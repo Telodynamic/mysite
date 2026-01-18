@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Telodynamic Solutions</title>
+    <style>
+        /* Shared Framework Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+        body { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); min-height: 100vh; padding: 40px 0; }
+        .container { max-width: 1100px; margin: 0 auto; width: 95%; }
+
+        /* Header */
+        header { background: #ffffff; padding: 15px 30px; border-radius: 8px 8px 0 0; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .logo { display: flex; align-items: center; gap: 10px; color: #1a365d; }
+        .logo-text strong { display: block; font-size: 1.2rem; letter-spacing: 1px; }
+        .logo-text small { font-size: 0.7rem; color: #3498db; letter-spacing: 3px; }
+        
+        nav ul { list-style: none; display: flex; gap: 20px; }
+        nav a { text-decoration: none; color: #555; font-size: 0.8rem; font-weight: 700; }
+        nav a.active { color: #3498db; border-bottom: 2px solid #3498db; padding-bottom: 5px; }
+
+        /* Products Content */
+        .content-body { background: #fdfdfd; padding: 50px; border-bottom: 4px solid #3498db; }
+        .page-header { margin-bottom: 40px; text-align: center; }
+        .page-header h1 { color: #1a365d; font-size: 2rem; margin-bottom: 10px; text-transform: uppercase; }
+        .page-header p { color: #718096; }
+
+        /* Products Grid */
+        .product-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); 
+            gap: 30px; 
+        }
+
+        .product-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+
+        .product-image {
+            height: 250px;
+            background-color: #f7fafc;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-details { padding: 25px; }
+        .product-details h2 { color: #2d3748; font-size: 1.25rem; margin-bottom: 12px; }
+        .product-details p { color: #4a5568; font-size: 0.9rem; line-height: 1.6; margin-bottom: 15px; }
+        
+        .spec-tag {
+            display: inline-block;
+            background: #ebf8ff;
+            color: #2b6cb0;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        .cta-btn {
+            display: block;
+            text-align: center;
+            background: #1a365d;
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+        .cta-btn:hover { background: #3498db; }
+
+        /* Footer */
+        footer { background: #111; color: white; padding: 25px 30px; border-radius: 0 0 8px 8px; display: flex; justify-content: space-between; align-items: center; }
+
+        @media (max-width: 768px) {
+            .product-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span style="font-size: 1.5rem;">⚛</span> 
+                <div class="logo-text">
+                    <strong>TELODYNAMIC</strong>
+                    <small>SOLUTIONS</small>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="services.html">SERVICES</a></li>
+                    <li><a href="#" class="active">PRODUCTS</a></li>
+                    <li><a href="index.html#contact">CONTACT</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="content-body">
+            <div class="page-header">
+                <h1>Our Product Portfolio</h1>
+                <p>Precision-engineered manipulation and shielding solutions for nuclear facilities.</p>
+            </div>
+
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1530124566582-aa37dd159a72?auto=format&fit=crop&q=80&w=600');"></div>
+                    <div class="product-details">
+                        <span class="spec-tag">Heavy Duty</span><span class="spec-tag">Custom Lengths</span>
+                        <h2>Ball Tong Manipulators</h2>
+                        <p>Engineered for seamless movement through sphere-units, our ball tong manipulators offer exceptional tactile feedback and rugged durability for hot cell operations.</p>
+                        <a href="index.html#contact" class="cta-btn">Request Specifications</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1530124566582-aa37dd159a72?auto=format&fit=crop&q=80&w=600');"></div>
+                    <div class="product-details">
+                        <span class="spec-tag">Modular</span><span class="spec-tag">Lead/Tungsten</span>
+                        <h2>Portable Shieldings & Sheilded Totes</h2>
+                        <p>Versatile radiation protection units designed for rapid deployment. Available in various lead-equivalent thicknesses to meet your specific safety protocols.</p>
+                        <a href="index.html#contact" class="cta-btn">Request Specifications</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1579154235602-3c35d740d602?auto=format&fit=crop&q=80&w=600');"></div>
+                    <div class="product-details">
+                        <span class="spec-tag">High Visibility</span><span class="spec-tag">Leaded Glass</span>
+                        <h2>Portable Shielding w/ Leaded Glass Window</h2>
+                        <p>Combining mobile radiation protection with crystal-clear viewing. Features high-density lead glass windows integrated into a stable, ergonomic mobile frame.</p>
+                        <a href="index.html#contact" class="cta-btn">Request Specifications</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1530124566582-aa37dd159a72?auto=format&fit=crop&q=80&w=600');"></div>
+                    <div class="product-details">
+                        <span class="spec-tag">Precision Control</span><span class="spec-tag">Lab-Grade</span>
+                        <h2>Micro Manipulators</h2>
+                        <p>Designed for ultra-fine movements in sensitive environments. Perfect for radiopharmaceutical compounding and precise laboratory handling applications.</p>
+                        <a href="index.html#contact" class="cta-btn">Request Specifications</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div>TELODYNAMIC SOLUTIONS © 2026</div>
+            <div style="font-size: 0.75rem; opacity: 0.7;">Quality Nuclear Product Engineering</div>
+        </footer>
+    </div>
+
+</body>
+</html>
