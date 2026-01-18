@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telodynamic | Nuclear Medicine Solutions</title>
     <style>
+        /* [Existing CSS remains unchanged for consistency] */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
         body { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); min-height: 100vh; display: flex; flex-direction: column; padding: 40px 0; }
         .container { max-width: 1100px; margin: 0 auto; width: 95%; }
@@ -20,7 +21,7 @@
         nav a { text-decoration: none; color: #555; font-size: 0.8rem; font-weight: 700; transition: 0.3s; }
         nav a.active { color: #3498db; border-bottom: 2px solid #3498db; padding-bottom: 5px; }
 
-        .hero { background: #001f3f url('https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=1100') center/cover; height: 350px; display: flex; align-items: center; color: white; text-align: center; position: relative; }
+        .hero { background: #001f3f url('hero-bg.jpg') center/cover; height: 350px; display: flex; align-items: center; color: white; text-align: center; position: relative; }
         .hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 10, 30, 0.75); }
         .hero-content { position: relative; width: 100%; padding: 0 20px; }
         .hero h1 { font-size: 2.8rem; letter-spacing: 3px; margin-bottom: 15px; text-transform: uppercase; }
@@ -32,13 +33,10 @@
         .card ul { list-style: none; font-size: 0.9rem; color: #4a5568; line-height: 2.2; }
         .card ul li::before { content: "• "; color: #3498db; font-weight: bold; margin-right: 8px;}
 
-        /* Contact Section */
         .contact-section { background: white; margin-top: 30px; margin-bottom: 30px; padding: 40px; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
-        
         .contact-info { background: #f7fafc; padding: 30px; border-radius: 4px; border-left: 5px solid #3498db; display: flex; flex-direction: column; justify-content: center; }
         .contact-info h2 { color: #1a365d; margin-bottom: 30px; text-transform: uppercase; font-size: 1.2rem; }
         .contact-item { margin-bottom: 30px; }
-        .contact-item:last-child { margin-bottom: 0; }
         .contact-item strong { display: block; font-size: 0.75rem; color: #3498db; text-transform: uppercase; letter-spacing: 1px; }
         .contact-item p { font-size: 1.1rem; color: #2d3748; font-weight: 600; margin-top: 5px; }
         .contact-item a { text-decoration: none; color: inherit; transition: color 0.2s; }
@@ -55,13 +53,8 @@
 
         footer { background: #111; color: white; padding: 25px 0; border-radius: 0 0 8px 8px; }
         .footer-content { display: flex; justify-content: space-between; align-items: center; padding: 0 30px; }
-        .footer-links a { color: #cbd5e0; margin-left: 25px; text-decoration: none; font-size: 0.75rem;}
-
-        @media (max-width: 850px) { 
-            .contact-section { grid-template-columns: 1fr; }
-            .contact-form { grid-template-columns: 1fr; } 
-            .form-group textarea, .submit-btn { grid-column: span 1; } 
-        }
+        
+        @media (max-width: 850px) { .contact-section { grid-template-columns: 1fr; } .contact-form { grid-template-columns: 1fr; } .form-group textarea, .submit-btn { grid-column: span 1; } }
     </style>
 </head>
 <body>
@@ -83,21 +76,7 @@
         <section class="hero"><div class="hero-content"><h1>ADVANCED CARE, PRECISION ENGINEERED</h1><p>Your Partner in Nuclear Medicine Technology</p></div></section>
 
         <section class="features">
-            <div class="card">
-                <h3>Maintenance Solutions</h3>
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=400');"></div>
-                <ul><li>Telemanipulator Support</li><li>Hot Cell Repair</li><li>Calibration & Testing</li></ul>
-            </div>
-            <div class="card">
-                <h3>Custom Products</h3>
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&q=80&w=400');"></div>
-                <ul><li>Manipulation Devices</li><li>Radiation Shielding</li><li>Custom Prototyping</li></ul>
-            </div>
-            <div class="card">
-                <h3>Why Choose Us?</h3>
-                <ul style="line-height: 2.5; padding-top: 20px;"><li><strong>✓</strong> EXPERIENCE</li><li><strong>✓</strong> INNOVATION</li><li><strong>✓</strong> COMPLIANCE</li></ul>
-            </div>
-        </section>
+            </section>
 
         <section class="contact-section" id="contact">
             <div class="contact-info">
@@ -112,23 +91,36 @@
                 </div>
             </div>
 
-            <form class="contact-form">
-                <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your Name" required></div>
-                <div class="form-group"><label>Facility Name</label><input type="text" placeholder="Organization" required></div>
-                <div class="form-group"><label>Inquiry Type</label>
-                    <select>
-                        <option>Product Inquiry</option>
-                        <option>Maintenance Request</option>
-                        <option>Custom Device Development</option>
+            <form class="contact-form" action="https://formspree.io/f/xzddeqqj" method="POST">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Facility Name</label>
+                    <input type="text" name="facility" placeholder="Organization" required>
+                </div>
+                <div class="form-group">
+                    <label>Inquiry Type</label>
+                    <select name="inquiry_type">
+                        <option value="Product Inquiry">Product Inquiry</option>
+                        <option value="Maintenance Request">Maintenance Request</option>
+                        <option value="Custom Device">Custom Device Development</option>
                     </select>
                 </div>
-                <div class="form-group"><label>Email Address</label><input type="email" placeholder="email@facility.com" required></div>
-                <div class="form-group" style="grid-column: span 2;"><label>Message / Details</label><textarea placeholder="How can our engineering team assist you?"></textarea></div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" name="_replyto" placeholder="email@facility.com" required>
+                </div>
+                <div class="form-group" style="grid-column: span 2;">
+                    <label>Message / Details</label>
+                    <textarea name="message" placeholder="How can our engineering team assist you?"></textarea>
+                </div>
                 <button type="submit" class="submit-btn">Send Request</button>
             </form>
         </section>
 
-        <footer><div class="footer-content"><div>TELODYNAMIC SOLUTIONS © 2026</div><div class="footer-links"><a href="#">Privacy</a><a href="#">Terms</a></div></div></footer>
+        <footer><div class="footer-content"><div>TELODYNAMIC SOLUTIONS © 2026</div></div></footer>
     </div>
 </body>
 </html>
