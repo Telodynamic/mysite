@@ -86,13 +86,14 @@
   if (message && productNames.includes(product)) message.value = `Product enquiry: ${product}\n\nApplication / requirements: `;
   const form = qs('form'), status = qs('#form-status');
   form?.addEventListener('submit', async e => {
-    e.preventDefault(); const button = qs('[type="submit"]', form), original = button.textContent;
+    e.preventDefault(); const button = qs('[type="submit"]', form); if (button.disabled) return; const original = button.textContent;
+    const controller = new AbortController(), timeout = setTimeout(() => controller.abort(), 20000);
     button.disabled = true; button.textContent = 'Sending enquiry…'; status.textContent = '';
     try {
-      const response = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      const response = await fetch(form.action, { method: 'POST', signal: controller.signal, body: new FormData(form), headers: { Accept: 'application/json' } });
       if (!response.ok) throw new Error('Delivery failed');
       form.reset(); syncInquiry(); status.textContent = 'Thank you. Your enquiry has been sent to Telodynamic.';
     } catch { status.textContent = 'Your enquiry could not be sent. Your details are still here. Please try again, or contact Telodynamic by email or phone.'; }
-    finally { button.disabled = false; button.textContent = original; status.focus(); }
+    finally { clearTimeout(timeout); button.disabled = false; button.textContent = original; status.focus(); }
   });
 })();
