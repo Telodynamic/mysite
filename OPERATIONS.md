@@ -15,6 +15,7 @@ The public website is static HTML/CSS/JavaScript deployed by GitHub Pages from `
 | Structured data | Expanded the existing Organization data with the existing brand mark; added WebSite, page identity and breadcrumb markup. No location, hours, ratings or business metrics are invented. |
 | Social sharing | Added branded 1200×630 sharing artwork, matching image descriptions and per-page social metadata. |
 | Navigation | Added the missing `#windows` anchor, keeping service-tab selection and incoming links consistent. |
+| Accessibility | Gave the labeled creator-credit container an explicit group role, resolving the footer semantics flagged for review by axe. |
 | Contact form | Retained the endpoint and reply email field. Added the documented Formspree honeypot and a native submission option after verification/validation errors. Rate-limit responses preserve data; timeout feedback acknowledges uncertainty instead of claiming non-delivery. |
 | Quality checks | Added `node tools/check-site.cjs` and a read-only GitHub Actions check for PRs and main pushes. Checks cover titles, canonical URLs, schema JSON, links/anchors, domain and production indexability. |
 
