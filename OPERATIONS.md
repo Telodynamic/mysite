@@ -1,5 +1,9 @@
 # Website operations and SEO audit — 2026-10-30
 
+## Release status
+
+The fixes below are prepared in [PR #3](https://github.com/Telodynamic/mysite/pull/3) and the isolated client preview. They are not yet merged into production. Local and deployed-preview browser tests passed; the new GitHub Actions workflow has not yet run in the upstream repository and must be confirmed after merge.
+
 ## What runs where
 
 The public website is static HTML/CSS/JavaScript deployed by GitHub Pages from `Telodynamic/mysite:main`. There is no application server, database, login system or custom API in this repository. The contact form posts to the existing Formspree endpoint `https://formspree.io/f/xzddeqqj`. Form processing, spam decisions and notification delivery are managed by Formspree; a working frontend does not prove mailbox delivery.
