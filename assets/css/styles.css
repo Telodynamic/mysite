@@ -219,3 +219,5 @@ body{overflow-wrap:break-word}
 
 /* Creator signature: original Elegant Flow mark reused from Dansvilla V63. */
 .creator-signature{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.55rem;max-width:1100px;margin:0 auto;padding:1.1rem 1.25rem 1.5rem;border-top:1px solid rgba(174,187,197,.18);color:#b8c8d5;font-size:.78rem;line-height:1.6}.creator-signature img{width:38px;height:38px;object-fit:contain;transition:filter .2s ease}.creator-signature a{color:#edf4f8;text-decoration:none;text-underline-offset:4px;transition:color .2s ease}.creator-signature a:hover{color:var(--cyan);text-decoration:underline}.creator-signature a:focus-visible{outline:2px solid var(--cyan);outline-offset:5px;border-radius:2px}.creator-heart{font-size:.95rem}.creator-signature:has(a:hover) img{filter:drop-shadow(0 0 6px rgba(0,184,230,.35))}@media(max-width:480px){.creator-signature{gap:.4rem;padding-inline:1rem}.creator-signature a{flex-basis:100%;text-align:center}.creator-separator{display:none}}
+
+.form-trap{display:none!important}.anchor-target{display:block;scroll-margin-top:100px}#form-verify[hidden]{display:none}

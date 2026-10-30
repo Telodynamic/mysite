@@ -84,16 +84,26 @@
   const product = params.get('product'), message = qs('#message');
   const productNames = ['Ball Tong Manipulators', 'Portable Shielding', 'Shielded Totes', 'Portable Shielding with Leaded-Glass Window', 'Micro Manipulators'];
   if (message && productNames.includes(product)) message.value = `Product enquiry: ${product}\n\nApplication / requirements: `;
-  const form = qs('form'), status = qs('#form-status');
+  const form = qs('form'), status = qs('#form-status'), nativeSubmit = qs('#form-verify');
+  nativeSubmit?.addEventListener('click', () => { if (form.reportValidity()) HTMLFormElement.prototype.submit.call(form); });
   form?.addEventListener('submit', async e => {
     e.preventDefault(); const button = qs('[type="submit"]', form); if (button.disabled) return; const original = button.textContent;
     const controller = new AbortController(), timeout = setTimeout(() => controller.abort(), 20000);
-    button.disabled = true; button.textContent = 'Sending enquiry…'; status.textContent = '';
+    button.disabled = true; button.textContent = 'Sending enquiry…'; status.textContent = ''; if (nativeSubmit) nativeSubmit.hidden = true;
     try {
       const response = await fetch(form.action, { method: 'POST', signal: controller.signal, body: new FormData(form), headers: { Accept: 'application/json' } });
-      if (!response.ok) throw new Error('Delivery failed');
-      form.reset(); syncInquiry(); status.textContent = 'Thank you. Your enquiry has been sent to Telodynamic.';
-    } catch { status.textContent = 'Your enquiry could not be sent. Your details are still here. Please try again, or contact Telodynamic by email or phone.'; }
+      if (!response.ok) {
+        const failure = new Error('Delivery failed'); failure.status = response.status; throw failure;
+      }
+      form.reset(); syncInquiry(); status.textContent = 'Thank you. Your enquiry has been submitted. Telodynamic can follow up using the email address you provided.';
+    } catch (error) {
+      if (error.name === 'AbortError') status.textContent = 'We could not confirm whether your enquiry was submitted. Your details are still here. Please check before sending again, or contact Telodynamic by email or phone.';
+      else if (error.status === 429) status.textContent = 'Your enquiry could not be sent because the form service is limiting requests. Your details are still here. Please wait before trying again, or use email or phone.';
+      else if (error.status === 400 || error.status === 403) {
+        status.textContent = 'Your enquiry could not be submitted. Check your details, or continue to the form service for any required verification. Your message is still here.';
+        if (nativeSubmit) nativeSubmit.hidden = false;
+      } else status.textContent = 'Your enquiry could not be sent. Your details are still here. Please try again, or contact Telodynamic by email or phone.';
+    }
     finally { clearTimeout(timeout); button.disabled = false; button.textContent = original; status.focus(); }
   });
 })();
