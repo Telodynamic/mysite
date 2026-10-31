@@ -1,5 +1,7 @@
 # Telodynamic V2 — client review
 
+This is the historical V2 review record. The redesign and creator footer have since been merged. The current technical audit and remaining owner-side checks are documented in [OPERATIONS.md](OPERATIONS.md).
+
 Preview: https://telodynamic-client-preview.vercel.app/
 
 Review branch: `rajasatyavardhan/mysite`, `telodynamic-v2`.
